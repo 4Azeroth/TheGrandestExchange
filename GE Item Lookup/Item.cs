@@ -16,6 +16,16 @@ namespace GE_Item_Lookup
             this.Deserialize(ids);
         }
 
+        void list_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            RootObject newestItem = list.Last();
+            if (newestItem.name.Equals(null))
+            {
+                list.Remove(newestItem);
+            }
+            throw new NotImplementedException();
+        }
+
         public ObservableCollection<RootObject> list { get; set; }
 
         public class Current

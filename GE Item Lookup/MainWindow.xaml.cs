@@ -41,6 +41,7 @@ namespace GE_Item_Lookup
             }
             cvItemList = CollectionViewSource.GetDefaultView(idList.list);
             IdListGrid.ItemsSource = cvItemList;
+            cvItemList.Filter = BlankFilter;
 
         }
 
@@ -151,7 +152,11 @@ namespace GE_Item_Lookup
 
         public bool BlankFilter(object o)
         {
-            return true;
+            IdList.RootObject p = (o as IdList.RootObject);
+            if (p.name != null)
+                return true;
+            else
+                return false;
         }
 
         private void FilterBox_TextChanged(object sender, TextChangedEventArgs e)
