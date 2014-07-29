@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="The Grandest Exchange.exe" version="1.0.0.8" publicKeyToken="47a2492ec065903c" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="1406092682_17220.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="The Grandest Exchange" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="The Grandest Exchange.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="500224">
+      <assemblyIdentity name="Newtonsoft.Json" version="6.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Aw5znLpgw7RgTuFXRJeuvIkrfOsM5E3Tn9Hvd2ei8TQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="The Grandest Exchange.exe" size="378880">
+      <assemblyIdentity name="The Grandest Exchange" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>N3FRCWldQdESahoUtsI674PlgRTztyIbbFFUuc2fIlg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="1406092682_17220.ico" size="173442">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2J4vJTqEuYdhecReP4KgE93xG1x2QpGJDGtIaz4OOCo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="The Grandest Exchange.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ZACH\Zach" issuerKeyHash="8ac03b1bc9f7d68c8fda4b690cc828a76fa5cab2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>+ksY6CguERT4h2QfQx9k0dDwGae1zOhvGzIX88e4J6E=</DigestValue></Reference></SignedInfo><SignatureValue>QkbrMgx36RViJhbmmN7Us+31M1pF+CZbux60TD1/XMF7X+DbCwOWYax2p6QEZEM3+1RHkvlpdvnYJ5npSY1rezPKDRobbN3pw6PKJidZRjsGSausmNkXyO9xW8sv2dbAsJ+E2vzqwmneAeAcAerrWlj0969pSkgSbaBekhqwihM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>sKWJ1cYWXmWWlZOyItBTAsZdik9PUEJYMR2yePSv9NY/FR7/P0jeJ8vL6twJyGIZyJqIaPxZRqcaN72emmdiMYdxbjLoSk2Hind5k7GwSZiLB1pmxIo+BzLAQecNDYi7m9hOUm/p1JVPsuin5I8/c1cb2EnXHKIrFimrq0iVOU8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a127b8c7f317321b6fe8ccb5a719f0d0d1641f431f6487f814112e28e8184bfa" Description="" Url=""><as:assemblyIdentity name="The Grandest Exchange.exe" version="1.0.0.8" publicKeyToken="47a2492ec065903c" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ZACH\Zach</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>5yrAZxQVeR8Jh1P8NrugLXN0qCePGNkjTcgO925hpJc=</DigestValue></Reference></SignedInfo><SignatureValue>TCrjIcnypw63727hTaEWNAmWmFvVqCuYyLwa1WMnGIjHXsxGaxUn4+1HWKBjmX4ttObqVSMKBZdjcwFycDsfr9yxtOW2Nx7hBOcRmQAy+QN782ItpOnuRiAQJbN7BtBV84fEca5SKr3YUuJ4Z36SCfERadZxsmGH3ay8KRnIfTw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>sKWJ1cYWXmWWlZOyItBTAsZdik9PUEJYMR2yePSv9NY/FR7/P0jeJ8vL6twJyGIZyJqIaPxZRqcaN72emmdiMYdxbjLoSk2Hind5k7GwSZiLB1pmxIo+BzLAQecNDYi7m9hOUm/p1JVPsuin5I8/c1cb2EnXHKIrFimrq0iVOU8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBvTCCASagAwIBAgIQUpimLWxLE7VGXIPZfFRuVDANBgkqhkiG9w0BAQsFADAdMRswGQYDVQQDHhIAWgBBAEMASABcAFoAYQBjAGgwHhcNMTQwNzIyMjM1MjUwWhcNMTUwNzIzMDU1MjUwWjAdMRswGQYDVQQDHhIAWgBBAEMASABcAFoAYQBjAGgwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALClidXGFl5llpWTsiLQUwLGXYpPT1BCWDEdsnj0r/TWPxUe/z9I3ifLy+rcCchiGciaiGj8WUanGje9nppnYjGHcW4y6EpNh4p3eZOxsEmYiwdaZsSKPgcywEHnDQ2Iu5vYTlJv6dSVT7Lop+SPP3NXG9hJ1xyiKxYpq6tIlTlPAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAac0z76NgOFYAwFRp3ULq30Ka5uq/KBz0NP/Er82dvQVGUaycwSt8iWHDtMKcklNXpXMDUr2U49hPrflsw/2HmNPjM4m8L4D3lfuc6IHXxgzdixj/tJNOaQMUF+zChDXwnHtrw0wh1lM8NuWxBw61yXuf+kslrPi96eiUxJ5ddCQ=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

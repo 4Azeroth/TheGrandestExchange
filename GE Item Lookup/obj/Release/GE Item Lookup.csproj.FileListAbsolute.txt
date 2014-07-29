@@ -1,0 +1,39 @@
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\GE Item Lookup.exe.config
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\GE Item Lookup.exe
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\GE Item Lookup.pdb
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\Newtonsoft.Json.dll
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\Newtonsoft.Json.xml
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\MainWindow.baml
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\App.baml
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\MainWindow.g.cs
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\App.g.cs
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup_MarkupCompile.cache
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.g.resources
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE_Item_Lookup.Properties.Resources.resources
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.csproj.GenerateResource.Cache
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.exe
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.pdb
+c:\users\zteisber\documents\visual studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.csprojResolveAssemblyReference.cache
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\MainWindow.baml
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\Window1.baml
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\App.baml
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\MainWindow.g.cs
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\Window1.g.cs
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\App.g.cs
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE_Item_Lookup.Properties.Resources.resources
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.csproj.GenerateResource.Cache
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\Newtonsoft.Json.dll
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\Newtonsoft.Json.xml
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\GE Item Lookup.csprojResolveAssemblyReference.cache
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\settings_backup.geson
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\The Grandest Exchange.exe.config
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\The Grandest Exchange.exe.manifest
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\The Grandest Exchange.application
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\The Grandest Exchange.exe
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\bin\Release\The Grandest Exchange.pdb
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\The Grandest Exchange_MarkupCompile.cache
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\The Grandest Exchange.g.resources
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\The Grandest Exchange.exe.manifest
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\The Grandest Exchange.application
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\The Grandest Exchange.exe
+C:\Users\Zach\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Release\The Grandest Exchange.pdb
