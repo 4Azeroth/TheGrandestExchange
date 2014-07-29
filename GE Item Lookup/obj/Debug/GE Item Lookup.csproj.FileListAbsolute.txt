@@ -44,3 +44,26 @@ C:\Users\zteisber\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item L
 C:\Users\zteisber\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Debug\The Grandest Exchange.g.resources
 C:\Users\zteisber\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Debug\The Grandest Exchange.exe.manifest
 C:\Users\zteisber\Documents\Visual Studio 2013\Projects\GE Item Lookup\GE Item Lookup\obj\Debug\The Grandest Exchange.application
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\The Grandest Exchange.exe.config
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\The Grandest Exchange.exe
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\The Grandest Exchange.pdb
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\settings_backup.geson
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\The Grandest Exchange.exe.manifest
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\The Grandest Exchange.application
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\The Grandest Exchange.exe
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\The Grandest Exchange.pdb
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\bin\Debug\Newtonsoft.Json.xml
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\GE Item Lookup.csprojResolveAssemblyReference.cache
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\MainWindow.baml
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\Window1.baml
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\App.baml
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\MainWindow.g.cs
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\Window1.g.cs
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\App.g.cs
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\The Grandest Exchange_MarkupCompile.cache
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\The Grandest Exchange.g.resources
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\GE_Item_Lookup.Properties.Resources.resources
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\GE Item Lookup.csproj.GenerateResource.Cache
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\The Grandest Exchange.exe.manifest
+C:\Users\zteisber\Documents\GitHub\TheGrandestExchange\GE Item Lookup\obj\Debug\The Grandest Exchange.application
