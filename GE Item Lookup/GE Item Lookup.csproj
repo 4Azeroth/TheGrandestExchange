@@ -134,7 +134,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Resource Include="settings.geson" />
+    <Resource Include="settings.geson">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="settings_backup.geson">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -36,7 +36,7 @@
                 </DrawingBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="611" Stroke="Black" VerticalAlignment="Top" Width="1117" Margin="1,-8,-1,0" Grid.ColumnSpan="2">
+        <Rectangle HorizontalAlignment="Left" Height="611" Stroke="Black" VerticalAlignment="Top" Width="1120" Margin="-3,-8,-1,0" Grid.ColumnSpan="2">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#C46E6E6E" Offset="0.004"/>
@@ -77,9 +77,15 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <ComboBox x:Name="TypeBox" Grid.Column="1" HorizontalAlignment="Left" Margin="322,271,0,0" VerticalAlignment="Top" Width="303" DropDownOpened="TypeBox_DropDownOpened" SelectionChanged="TypeBox_SelectionChanged"/>
+        <ComboBox x:Name="TypeBox" Grid.Column="1" HorizontalAlignment="Left" Margin="322,271,0,0" VerticalAlignment="Top" Width="303" DropDownOpened="TypeBox_DropDownOpened" SelectionChanged="TypeBox_SelectionChanged" Background="#7F595959" Foreground="Black"/>
         <Label Content="Custom Filters:" Grid.Column="1" HorizontalAlignment="Left" Margin="224,267,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="14"/>
-        <DataGrid x:Name="TransactionGrid" IsReadOnly="True" CanUserAddRows="False" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="407,298,0,0" VerticalAlignment="Top" Width="213" AutoGenerateColumns="False" MouseDoubleClick="TransactionGrid_MouseDoubleClick">
+        <DataGrid x:Name="TransactionGrid" IsReadOnly="True" CanUserAddRows="False" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="407,298,0,0" VerticalAlignment="Top" Width="213" AutoGenerateColumns="False" MouseDoubleClick="TransactionGrid_MouseDoubleClick" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" RowBackground="#7F000000" AlternatingRowBackground="#7F646464" CanUserResizeRows="False" HeadersVisibility="Column">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background"
+        				Value="Transparent" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Width="65" IsReadOnly="True" Binding="{Binding amount}" ClipboardContentBinding="{x:Null}" Header="Amount"/>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Binding="{Binding costPerUnit}" ClipboardContentBinding="{x:Null}" Header="Cost Per Unit"/>
@@ -145,13 +151,20 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <DataGrid x:Name="IdListGrid" CanUserAddRows="False" HorizontalAlignment="Left" Height="510" Margin="0,63,0,0" VerticalAlignment="Top" Width="701" AutoGenerateColumns="False" Background="{x:Null}" SelectionChanged="IdListGrid_SelectionChanged" MouseDoubleClick="IdListGrid_MouseDoubleClick" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#7F000000" RowBackground="#004F4F4F" AreRowDetailsFrozen="True" AlternatingRowBackground="#7F000000" Foreground="White" HeadersVisibility="Column">
+        <DataGrid x:Name="IdListGrid" CanUserAddRows="False" HorizontalAlignment="Left" Height="510" Margin="0,63,0,0" VerticalAlignment="Top" Width="701" AutoGenerateColumns="False" Background="{x:Null}" SelectionChanged="IdListGrid_SelectionChanged" MouseDoubleClick="IdListGrid_MouseDoubleClick" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#7F000000" RowBackground="#004F4F4F" AreRowDetailsFrozen="True" AlternatingRowBackground="#7F000000" Foreground="White" HeadersVisibility="Column" BorderBrush="{x:Null}">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background"
         				Value="Transparent" />
                 </Style>
             </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                    <Setter Property="Background" Value="Black" />
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Width="45" IsReadOnly="True" Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="Id" SortDirection="Ascending"/>
                 <DataGridTextColumn Width="200" IsReadOnly="True" Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="Name"/>

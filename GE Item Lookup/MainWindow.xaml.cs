@@ -331,30 +331,37 @@ namespace GE_Item_Lookup
 
         private void TransactionGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            IdList.RootObject selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
-            IdList.Transaction selectedTransation = (IdList.Transaction)TransactionGrid.SelectedItem;
-            // Display message box
-            MessageBoxButton button = MessageBoxButton.YesNoCancel;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete the transaction\nAmount: \"" + selectedTransation.amount + "\" Cost Per Unit: \"" + selectedTransation.costPerUnit + "\"?" , "Remove Transaction Warning" , button, icon);
-
-            // Process message box results 
-            switch (result)
+            IInputElement element = e.MouseDevice.DirectlyOver;
+            if (element != null && element is FrameworkElement)
             {
-                case MessageBoxResult.Yes:
-                    selectedItem.investments.removeTransaction(selectedTransation);
-                    AmountInvested.Content = selectedItem.investments.amount;
-                    MoneyInvested.Content = selectedItem.investments.money;
-                    updateProfitMargin(selectedItem);
-                    break;
-                case MessageBoxResult.No:
-                    // User pressed No button 
-                    // ... 
-                    break;
-                case MessageBoxResult.Cancel:
-                    // User pressed Cancel button 
-                    // ... 
-                    break;
+                if (((FrameworkElement)element).Parent is DataGridCell)
+                {
+                    IdList.RootObject selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
+                    IdList.Transaction selectedTransation = (IdList.Transaction)TransactionGrid.SelectedItem;
+                    // Display message box
+                    MessageBoxButton button = MessageBoxButton.YesNoCancel;
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to delete the transaction\nAmount: \"" + selectedTransation.amount + "\" Cost Per Unit: \"" + selectedTransation.costPerUnit + "\"?", "Remove Transaction Warning", button, icon);
+
+                    // Process message box results 
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            selectedItem.investments.removeTransaction(selectedTransation);
+                            AmountInvested.Content = selectedItem.investments.amount;
+                            MoneyInvested.Content = selectedItem.investments.money;
+                            updateProfitMargin(selectedItem);
+                            break;
+                        case MessageBoxResult.No:
+                            // User pressed No button 
+                            // ... 
+                            break;
+                        case MessageBoxResult.Cancel:
+                            // User pressed Cancel button 
+                            // ... 
+                            break;
+                    }
+                }
             }
         }
         private void updateProfitMargin(IdList.RootObject item)
