@@ -576,5 +576,30 @@ namespace GE_Item_Lookup
         {
             System.Diagnostics.Process.Start("http://www.runescape.com/companion/");
         }
+
+        private void ClearData_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxButton button = MessageBoxButton.YesNoCancel;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult result = MessageBox.Show("This will delete all current data in the application allowing you to download a fresh list. This will also delete any transactions and your custom categories. Are you sure you want to do this?", "Clear Data Warning", button, icon);
+
+            // Process message box results 
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    idList.list = null;
+                    System.Windows.Forms.Application.Restart();
+                    System.Windows.Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    // User pressed No button 
+                    // ... 
+                    break;
+                case MessageBoxResult.Cancel:
+                    // User pressed Cancel button 
+                    // ... 
+                    break;
+            }
+        }
     }
 }
