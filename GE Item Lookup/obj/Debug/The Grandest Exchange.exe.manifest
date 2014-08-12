@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="The Grandest Exchange.exe" size="677888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="The Grandest Exchange.exe" size="687616">
       <assemblyIdentity name="The Grandest Exchange" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xNqldULYB1289K9DGTPUat6k2BExNart3rLHo/HHSxA=</dsig:DigestValue>
+        <dsig:DigestValue>P7iIe01zZ3f5q8QZ0xQI18rqNjqeu/RZoG2mtBfqCbA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

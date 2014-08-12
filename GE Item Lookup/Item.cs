@@ -82,32 +82,39 @@ namespace GE_Item_Lookup
 
         public void Deserialize(string ids)
         {
-            using (var w = new WebClient())
+            try
             {
-                var json_data = string.Empty;
-                json_data = w.DownloadString("http://us.api.rsapi.net/ge/item/" + ids + ".json");
-                //for (int i = 0; i < 9 && json_data == string.Empty; i++)
-                /*{
-                    if (json_data != null)
+
+                using (var w = new WebClient())
+                {
+                    var json_data = string.Empty;
+                    json_data = w.DownloadString("http://us.api.rsapi.net/ge/item/" + ids + ".json");
+                    //for (int i = 0; i < 9 && json_data == string.Empty; i++)
+                    /*{
+                        if (json_data != null)
+                        {
+                            TextWriter tsw = new StreamWriter(@"C:\\Users\\zteisber\\Documents\\itemlist.txt", true);
+
+                            //Writing text to the file.
+                            tsw.WriteLine(json_data + System.Environment.NewLine);
+
+
+                            //Close the file.
+                            tsw.Close();
+                        }
+                        }*/
+                    try
                     {
-                        TextWriter tsw = new StreamWriter(@"C:\\Users\\zteisber\\Documents\\itemlist.txt", true);
-
-                        //Writing text to the file.
-                        tsw.WriteLine(json_data + System.Environment.NewLine);
-
-
-                        //Close the file.
-                        tsw.Close();
+                        this.list = JsonConvert.DeserializeObject<ObservableCollection<RootObject>>(json_data);
                     }
-                    }*/
-                try
-                {
-                    this.list = JsonConvert.DeserializeObject<ObservableCollection<RootObject>>(json_data);
+                    catch
+                    {
+                        this.list = null;
+                    }
                 }
-                catch
-                {
-                    this.list = null;
-                }
+            }
+            catch
+            {
             }
         }
     }

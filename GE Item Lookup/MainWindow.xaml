@@ -7,8 +7,8 @@
             <ColumnDefinition Width="482*"/>
             <ColumnDefinition Width="635*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Minimize" Focusable="False" Content="_" HorizontalAlignment="Left" Height="68" Margin="510,-37,0,574" VerticalAlignment="Bottom" Width="64" FontSize="36" FontWeight="Bold" Foreground="White" Background="{x:Null}" Click="Minimize_Click" ClickMode="Press" Panel.ZIndex="1" Grid.Column="1"/>
-        <Button x:Name="Exit" Focusable="False" Content="X" HorizontalAlignment="Left" Height="37" Margin="572,-6,-1,0" VerticalAlignment="Top" Width="64" FontSize="22" FontWeight="Bold" Foreground="White" Background="#7FFF0E0E" RenderTransformOrigin="0.558,1.274" FontFamily="Tempus Sans ITC" Click="Exit_Click" Panel.ZIndex="1" Grid.Column="1"/>
+        <Button x:Name="Minimize" Focusable="False" Content="_" HorizontalAlignment="Left" Height="68" Margin="512,-37,0,574" VerticalAlignment="Bottom" Width="64" FontSize="36" FontWeight="Bold" Foreground="White" Background="#7F16004F" Click="Minimize_Click" ClickMode="Press" Panel.ZIndex="1" Grid.Column="1"/>
+        <Button x:Name="Exit" Focusable="False" Content="X" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,-2" Margin="574,-37,-3,574" Width="64" FontSize="22" FontWeight="Bold" Foreground="White" Background="#7FFF0000" RenderTransformOrigin="0.558,1.274" FontFamily="Tempus Sans ITC" Click="Exit_Click" Panel.ZIndex="1" Grid.Column="1" BorderBrush="{x:Null}" BorderThickness="0" Height="68" VerticalAlignment="Bottom"/>
         <Rectangle Fill="#FF211717" HorizontalAlignment="Left" Height="605" Stroke="Black" VerticalAlignment="Top" Width="1117" Grid.ColumnSpan="2"/>
         <Rectangle HorizontalAlignment="Left" Height="605" Stroke="Black" VerticalAlignment="Top" Width="1117" Grid.ColumnSpan="2">
             <Rectangle.Fill>
@@ -51,9 +51,9 @@
         <Rectangle x:Name="DragRect" HorizontalAlignment="Left" Height="38" Margin="-1,-7,0,0" VerticalAlignment="Top" Width="993" MouseDown="DragRect_MouseDown" Fill="#02000000" Grid.ColumnSpan="2"/>
         <TextBox x:Name="FilterBox" HorizontalAlignment="Left" Height="23" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="701" ToolTip="Type Filter Text Here" Text="Type Filter Text Here" FontStyle="Italic" Foreground="#FF6B6B6B" GotFocus="FilterBox_GotFocus" LostFocus="FilterBox_LostFocus" TextChanged="FilterBox_TextChanged" Grid.ColumnSpan="2"/>
         <Rectangle x:Name="StatusBar" HorizontalAlignment="Left" Height="32" Margin="-1,573,0,0" Stroke="Black" VerticalAlignment="Top" Width="1117" Fill="#8C0E0E0E" Grid.ColumnSpan="2"/>
-        <ProgressBar x:Name="StatusProgress" Visibility="Hidden" HorizontalAlignment="Left" Height="27" Margin="20,576,0,0" VerticalAlignment="Top" Width="199" IsEnabled="False" Grid.Column="1" Foreground="#FF01D328"/>
+        <ProgressBar x:Name="StatusProgress" Visibility="Hidden" HorizontalAlignment="Left" Height="27" Margin="20,576,0,0" VerticalAlignment="Top" Width="199" IsEnabled="False" Grid.Column="1" Foreground="#FF01D328" Cursor="AppStarting"/>
         <Label x:Name="StatusLabel" Content="Running!" HorizontalAlignment="Left" Margin="0,578,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="226" Margin="224,36,0,0" VerticalAlignment="Top" Width="397" CornerRadius="25" Grid.Column="1">
+        <Border x:Name="DescriptionBorder" BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="226" Margin="224,36,0,0" VerticalAlignment="Top" Width="397" CornerRadius="25" Grid.Column="1" Visibility="Hidden">
             <Border.Effect>
                 <DropShadowEffect/>
             </Border.Effect>
@@ -68,6 +68,9 @@
         <Label x:Name="ChangeText" Content="" HorizontalAlignment="Left" Margin="510,218,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Grid.Column="1"/>
         <Label x:Name="TrendLabel" Content="" HorizontalAlignment="Left" Margin="470,218,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Grid.Column="1"/>
         <Button x:Name="AboutButton" Content="About" HorizontalAlignment="Left" Height="25" Margin="407,548,0,0" VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Foreground="White" Click="AboutButton_Click" Grid.Column="1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#33F3F3F3"/>
@@ -77,23 +80,110 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <ComboBox x:Name="TypeBox" Grid.Column="1" HorizontalAlignment="Left" Margin="322,271,0,0" VerticalAlignment="Top" Width="303" DropDownOpened="TypeBox_DropDownOpened" SelectionChanged="TypeBox_SelectionChanged" Background="#7F595959" Foreground="Black"/>
-        <Label Content="Custom Filters:" Grid.Column="1" HorizontalAlignment="Left" Margin="224,267,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="14"/>
-        <DataGrid x:Name="TransactionGrid" IsReadOnly="True" CanUserAddRows="False" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="407,298,0,0" VerticalAlignment="Top" Width="213" AutoGenerateColumns="False" MouseDoubleClick="TransactionGrid_MouseDoubleClick" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" RowBackground="#7F000000" AlternatingRowBackground="#7F646464" CanUserResizeRows="False" HeadersVisibility="Column">
+        <ComboBox x:Name="TypeBox" Grid.Column="1" HorizontalAlignment="Left" Margin="322,271,0,0" VerticalAlignment="Top" Width="303" DropDownOpened="TypeBox_DropDownOpened" SelectionChanged="TypeBox_SelectionChanged" Background="#7FFFFFFF" Foreground="Black" Visibility="Visible">
+            <ComboBox.Effect>
+                <DropShadowEffect/>
+            </ComboBox.Effect>
+        </ComboBox>
+        <Label x:Name="Hidden1" Content="Custom Filters:" Grid.Column="1" HorizontalAlignment="Left" Margin="224,267,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="14" Visibility="Visible"/>
+        <DataGrid x:Name="TransactionGrid" IsReadOnly="True" CanUserAddRows="False" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="407,298,0,0" VerticalAlignment="Top" Width="213" AutoGenerateColumns="False" MouseDoubleClick="TransactionGrid_MouseDoubleClick" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" RowBackground="#7F000000" AlternatingRowBackground="#7F646464" CanUserResizeRows="False" HeadersVisibility="Column" Visibility="Hidden">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background"
         				Value="Transparent" />
                 </Style>
             </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Resources>
+                <!--Scrollbar Thumbs-->
+                <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                <Grid x:Name="Grid">
+                                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="Transparent" />
+                                    <Border x:Name="Rectangle1" CornerRadius="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  Background="{TemplateBinding Background}" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Tag" Value="Horizontal">
+                                        <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                        <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <!--ScrollBars-->
+                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+                    <Setter Property="Foreground" Value="LightGray" />
+                    <Setter Property="Background" Value="DarkGray" />
+                    <Setter Property="Width" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                <Grid x:Name="GridRoot" Width="19" Background="{TemplateBinding Background}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.00001*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+                                        <Track.Thumb>
+                                            <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+                                        </Track.Thumb>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+                                        </Track.DecreaseRepeatButton>
+                                    </Track>
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                        <Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background" />
+                                    </Trigger>
+                                    <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                        <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background" />
+                                    </Trigger>
+
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                    <Trigger Property="Orientation" Value="Horizontal">
+                                        <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="-90" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="-90" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Width" Value="Auto" />
+                                        <Setter Property="Height" Value="12" />
+                                        <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                        <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                        <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Width="65" IsReadOnly="True" Binding="{Binding amount}" ClipboardContentBinding="{x:Null}" Header="Amount"/>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Binding="{Binding costPerUnit}" ClipboardContentBinding="{x:Null}" Header="Cost Per Unit"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="AmountToPurchaseText" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="314,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"/>
-        <TextBox x:Name="CostPerUnitText" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="314,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"/>
-        <Button x:Name="PurchaseButton" Content="Purchase" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="233,362,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Click="PurchaseButton_Click">
+        <TextBox x:Name="AmountToPurchaseText" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="314,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Visibility="Hidden"/>
+        <TextBox x:Name="CostPerUnitText" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="314,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Visibility="Hidden"/>
+        <Button x:Name="PurchaseButton" Content="Purchase" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="233,362,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Click="PurchaseButton_Click" Visibility="Hidden">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#7FF3F3F3" Offset="0"/>
@@ -103,16 +193,16 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="Amount:" Grid.Column="1" HorizontalAlignment="Left" Margin="254,304,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Cost Per Unit:" Grid.Column="1" HorizontalAlignment="Left" Margin="226,331,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.545,1.538"/>
+        <Label x:Name="Hidden2" Content="Amount:" Grid.Column="1" HorizontalAlignment="Left" Margin="254,304,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="Hidden3" Content="Cost Per Unit:" Grid.Column="1" HorizontalAlignment="Left" Margin="226,331,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.545,1.538" Visibility="Hidden"/>
         <Label x:Name="ErrorLabel" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="243,395,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="Red"/>
-        <Label x:Name="MoneyInvested" Content="0" Grid.Column="1" HorizontalAlignment="Left" Margin="274,446,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Amount:" Grid.Column="1" HorizontalAlignment="Left" Margin="225,420,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Invested:" Grid.Column="1" HorizontalAlignment="Left" Margin="224,446,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label x:Name="AmountInvested" Content="0" Grid.Column="1" HorizontalAlignment="Left" Margin="274,420,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Profit At Current Market Price" Grid.Column="1" HorizontalAlignment="Left" Margin="225,472,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="MoneyInvested" Content="0" Grid.Column="1" HorizontalAlignment="Left" Margin="274,446,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="Hidden4" Content="Amount:" Grid.Column="1" HorizontalAlignment="Left" Margin="225,420,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="Hidden5" Content="Invested:" Grid.Column="1" HorizontalAlignment="Left" Margin="224,446,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="AmountInvested" Content="0" Grid.Column="1" HorizontalAlignment="Left" Margin="274,420,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="Hidden6" Content="Profit At Current Market Price" Grid.Column="1" HorizontalAlignment="Left" Margin="225,472,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
         <Label x:Name="ProfitMarginText" HorizontalContentAlignment="Center" Content="" Grid.Column="1" Margin="224,498,238,0" VerticalAlignment="Top" Height="45" Width="173"/>
-        <Button x:Name="SellButton" Content="Sell" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="314,362,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Click="SellButton_Click">
+        <Button x:Name="SellButton" Content="Sell" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="314,362,0,0" VerticalAlignment="Top" Width="76" Foreground="White" Click="SellButton_Click" Visibility="Hidden">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#7FF3F3F3" Offset="0"/>
@@ -122,7 +212,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="ClearTransactionsButton" Content="Clear Transactions" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="407,503,0,0" VerticalAlignment="Top" Width="213" Foreground="White" Click="ClearTransactionsButton_Click">
+        <Button x:Name="ClearTransactionsButton" Content="Clear Transactions" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="407,503,0,0" VerticalAlignment="Top" Width="213" Foreground="White" Click="ClearTransactionsButton_Click" Visibility="Hidden">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#7FF3F3F3" Offset="0"/>
@@ -133,6 +223,9 @@
             </Button.Background>
         </Button>
         <Button x:Name="CompanionButton" Content="Open Companion" HorizontalAlignment="Left" Height="25" Margin="226,548,0,0" VerticalAlignment="Top" Width="164" BorderBrush="{x:Null}" Foreground="White" Grid.Column="1" Click="CompanionButton_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#33F3F3F3"/>
@@ -144,14 +237,15 @@
         </Button>
         <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="18" Margin="-1,63,0,0" VerticalAlignment="Top" Width="702">
             <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#33FF0000" Offset="0.438"/>
+                    <GradientStop Color="#99FFFFFF"/>
+                    <GradientStop Color="#D6656565" Offset="0.241"/>
+                    <GradientStop Color="#DA5B5B5B" Offset="0.763"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <DataGrid x:Name="IdListGrid" CanUserAddRows="False" HorizontalAlignment="Left" Height="510" Margin="0,63,0,0" VerticalAlignment="Top" Width="701" AutoGenerateColumns="False" Background="{x:Null}" SelectionChanged="IdListGrid_SelectionChanged" MouseDoubleClick="IdListGrid_MouseDoubleClick" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#7F000000" RowBackground="#004F4F4F" AreRowDetailsFrozen="True" AlternatingRowBackground="#7F000000" Foreground="White" HeadersVisibility="Column" BorderBrush="{x:Null}">
+        <DataGrid x:Name="IdListGrid" CanUserAddRows="False" HorizontalAlignment="Left" Height="510" Margin="0,63,0,0" VerticalAlignment="Top" Width="701" AutoGenerateColumns="False" Background="{x:Null}" SelectionChanged="IdListGrid_SelectionChanged" MouseDoubleClick="IdListGrid_MouseDoubleClick" Grid.ColumnSpan="2" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#7F000000" RowBackground="#004F4F4F" AreRowDetailsFrozen="True" AlternatingRowBackground="#7F000000" Foreground="White" HeadersVisibility="Column" BorderBrush="{x:Null}" Cursor="Arrow">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background"
@@ -159,12 +253,91 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Resources>
-                <Style TargetType="ScrollBar">
-                    <Setter Property="Background" Value="Black" />
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="BorderBrush" Value="Black"/>
+                <!--Scrollbar Thumbs-->
+                <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                <Grid x:Name="Grid">
+                                    <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="Transparent" />
+                                    <Border x:Name="Rectangle1" CornerRadius="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  Background="{TemplateBinding Background}" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Tag" Value="Horizontal">
+                                        <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                        <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
+
+                <!--ScrollBars-->
+                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+                    <Setter Property="Foreground" Value="LightGray" />
+                    <Setter Property="Background" Value="DarkGray" />
+                    <Setter Property="Width" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                <Grid x:Name="GridRoot" Width="19" Background="{TemplateBinding Background}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.00001*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+                                        <Track.Thumb>
+                                            <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+                                        </Track.Thumb>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+                                        </Track.DecreaseRepeatButton>
+                                    </Track>
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                        <Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background" />
+                                    </Trigger>
+                                    <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                        <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background" />
+                                    </Trigger>
+
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                    <Trigger Property="Orientation" Value="Horizontal">
+                                        <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="-90" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                            <Setter.Value>
+                                                <RotateTransform Angle="-90" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Width" Value="Auto" />
+                                        <Setter Property="Height" Value="12" />
+                                        <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                        <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                        <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
             </DataGrid.Resources>
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
             <DataGrid.Columns>
                 <DataGridTextColumn Width="45" IsReadOnly="True" Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="Id" SortDirection="Ascending"/>
                 <DataGridTextColumn Width="200" IsReadOnly="True" Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="Name"/>
@@ -172,5 +345,9 @@
                 <DataGridTextColumn Width="*" Header="Custom Categories" Binding="{Binding notes}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label x:Name="Visible_1" Content="&lt;- Item List Searches/Filters as you type" Grid.Column="1" HorizontalAlignment="Left" Margin="226,40,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="14" Visibility="Visible" FontWeight="Bold"/>
+        <TextBlock x:Name="Visible_2" Text="Details will appear here if you click on an item! Double Click in the Custom Categories Column to make your own categories to search by!" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Left" Margin="224,79,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="18" Visibility="Visible" FontWeight="Bold"/>
+        <TextBlock x:Name="Visible_3" Text="Track and see profits before selling here by managing your transactions!" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Left" Margin="219,338,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="18" Visibility="Visible" FontWeight="Bold" Height="112" Width="357"/>
+        <TextBlock x:Name="Visible_4" Text="Use the Custom Filters Dropdown box below to quickly Search for your Custom Filters or  Current Investments!" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Left" Margin="223,186,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="18" Visibility="Visible" FontWeight="Bold" Height="74" Width="406"/>
     </Grid>
 </Window>

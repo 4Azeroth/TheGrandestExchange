@@ -20,23 +20,34 @@ namespace GE_Item_Lookup
 
                 StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\settings.geson");
                 json_data = sr.ReadToEnd();
+                if (json_data== "null")
+                {
+                    json_data=webIDList();
+                    //File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\settings.geson");
+                }
             }
             else
             {
-                using (var w = new WebClient())
-                {
-                    try
-                    {
-                        //for (int i = 0; i < 9 && json_data == string.Empty; i++)
-                        //{
-                        json_data = w.DownloadString("http://us.api.rsapi.net/idlist.json");
-                    }
-                    catch(Exception)
-                    {
-                    }
-                }
+                json_data = webIDList();
             }
             Deserialize(json_data);
+        }
+
+        public string webIDList()
+        {
+            using (var w = new WebClient())
+            {
+                try
+                {
+                    //for (int i = 0; i < 9 && json_data == string.Empty; i++)
+                    //{
+                    return w.DownloadString("http://us.api.rsapi.net/idlist.json");
+                }
+                catch
+                {
+                    return "";
+                }
+            }
         }
 
         public ObservableCollection<RootObject> list { get; set; }

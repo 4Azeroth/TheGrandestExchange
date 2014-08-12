@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -33,16 +34,18 @@ namespace GE_Item_Lookup
         public MainWindow()
         {
             InitializeComponent();
-            if (idList.list.Select(i => i.type).Distinct().ToList().Contains(null))
+            if (idList.list != null)
             {
-                Thread thread = new Thread(updateTypes);
-                thread.Start();
-                threadList.Add(thread);
+                if (idList.list.Select(i => i.type).Distinct().ToList().Contains(null))
+                {
+                    Thread thread = new Thread(updateTypes);
+                    thread.Start();
+                    threadList.Add(thread);
+                }
+                cvItemList = CollectionViewSource.GetDefaultView(idList.list);
+                IdListGrid.ItemsSource = cvItemList;
+                cvItemList.Filter = BlankFilter;
             }
-            cvItemList = CollectionViewSource.GetDefaultView(idList.list);
-            IdListGrid.ItemsSource = cvItemList;
-            cvItemList.Filter = BlankFilter;
-
         }
 
         public void updateTypes()
@@ -54,20 +57,36 @@ namespace GE_Item_Lookup
                 StatusProgress.IsEnabled = true;
                 StatusProgress.Maximum = idList.list.Count;
             }));
-            for (int i = 0; i < idList.list.Count; i++)
+            bool internet = true;
+            for (int i = 0; i < idList.list.Count && internet; i++)
             {
                 if (idList.list.ElementAt(i).type == null)
                 {
                     Item item = new Item(idList.list.ElementAt(i).id.ToString());
-                    idList.list.ElementAt(i).type = item.list.ElementAt(0).type;
-                    this.Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
+                    if (item.list != null)
                     {
-                        StatusProgress.Value = i;
-                        if (i < idList.list.Count)
+                        idList.list.ElementAt(i).type = item.list.ElementAt(0).type;
+                        this.Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
                         {
-                            StatusLabel.Content = idList.list.ElementAt(i).name + " is given type " + item.list.ElementAt(0).type;
-                        }
-                    }));
+                            StatusProgress.Value = i;
+                            if (i < idList.list.Count)
+                            {
+                                StatusLabel.Content = idList.list.ElementAt(i).name + " is given type " + item.list.ElementAt(0).type;
+                            }
+                        }));
+                    }
+                    else
+                    {
+                        internet = false;
+                        this.Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
+                        {
+                            StatusProgress.Value = i;
+                            if (i < idList.list.Count)
+                            {
+                                StatusLabel.Content = idList.list.ElementAt(i).name + " details couldn't be retrieved. Check your internet Connection!";
+                            }
+                        }));
+                    }
                 }
             }
             this.Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
@@ -194,42 +213,71 @@ namespace GE_Item_Lookup
                 IdList.RootObject selectedItem;
                 selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
                 Item detailedItem = new Item(selectedItem.id.ToString());
-                Item.RootObject itemDetails = detailedItem.list.ElementAt(0);
-                ItemImage.Source = new BitmapImage(new Uri(itemDetails.icon_large));
-                IdText.Content = "Id: " + itemDetails.id;
-                NameText.Content = "Name: " + itemDetails.name;
-                TypeText.Content = "Category: " + itemDetails.type;
-                AmountToPurchaseText.Text = "1";
-                CostPerUnitText.Text = priceToInt(itemDetails.prices.current.price).ToString();
-                MoneyInvested.Content = selectedItem.investments.money;
-                AmountInvested.Content = selectedItem.investments.amount;
-                TransactionGrid.ItemsSource = selectedItem.investments.transactions;
-                updateProfitMargin(selectedItem);
-                if (selectedItem.type == null)
+                if (detailedItem.list != null)
                 {
-                    selectedItem.type = itemDetails.type;
-                }
-                DescriptionText.Text = "Description: " + itemDetails.description;
-                PriceText.Content = "Price: " + itemDetails.prices.current.price;
-                SolidColorBrush color = new SolidColorBrush();
-                TrendLabel.Content = "Trend:";
-                if (itemDetails.prices.days30.trend == "positive")
-                {
-                    color.Color = Color.FromRgb(0, 255, 0);
-                    TrendText.Foreground = color;
-                    TrendText.Content = itemDetails.prices.days30.change;
-                }
-                else if (itemDetails.prices.days30.trend == "negative")
-                {
-                    color.Color = Color.FromRgb(255, 0, 0);
-                    TrendText.Foreground = color;
-                    TrendText.Content = itemDetails.prices.days30.change;
+                    Visible_1.Visibility = Visibility.Hidden;
+                    Visible_2.Visibility = Visibility.Hidden;
+                    Visible_3.Visibility = Visibility.Hidden;
+                    Visible_4.Visibility = Visibility.Hidden;
+                    Hidden1.Visibility = Visibility.Visible;
+                    Hidden2.Visibility = Visibility.Visible;
+                    Hidden3.Visibility = Visibility.Visible;
+                    Hidden4.Visibility = Visibility.Visible;
+                    Hidden5.Visibility = Visibility.Visible;
+                    Hidden6.Visibility = Visibility.Visible;
+                    ClearTransactionsButton.Visibility = Visibility.Visible;
+                    CostPerUnitText.Visibility = Visibility.Visible;
+                    SellButton.Visibility = Visibility.Visible;
+                    ProfitMarginText.Visibility = Visibility.Visible;
+                    AmountInvested.Visibility = Visibility.Visible;
+                    MoneyInvested.Visibility = Visibility.Visible;
+                    PurchaseButton.Visibility = Visibility.Visible;
+                    TransactionGrid.Visibility = Visibility.Visible;
+                    TypeBox.Visibility = Visibility.Visible;
+                    DescriptionBorder.Visibility = Visibility.Visible;
+                    AmountToPurchaseText.Visibility = Visibility.Visible;
+                    Item.RootObject itemDetails = detailedItem.list.ElementAt(0);
+                    ItemImage.Source = new BitmapImage(new Uri(itemDetails.icon_large));
+                    IdText.Content = "Id: " + itemDetails.id;
+                    NameText.Content = "Name: " + itemDetails.name;
+                    TypeText.Content = "Category: " + itemDetails.type;
+                    AmountToPurchaseText.Text = "1";
+                    CostPerUnitText.Text = priceToInt(itemDetails.prices.current.price).ToString();
+                    MoneyInvested.Content = selectedItem.investments.money;
+                    AmountInvested.Content = selectedItem.investments.amount;
+                    TransactionGrid.ItemsSource = selectedItem.investments.transactions;
+                    updateProfitMargin(selectedItem);
+                    if (selectedItem.type == null)
+                    {
+                        selectedItem.type = itemDetails.type;
+                    }
+                    DescriptionText.Text = "Description: " + itemDetails.description;
+                    PriceText.Content = "Price: " + itemDetails.prices.current.price;
+                    SolidColorBrush color = new SolidColorBrush();
+                    TrendLabel.Content = "Trend:";
+                    if (itemDetails.prices.days30.trend == "positive")
+                    {
+                        color.Color = Color.FromRgb(0, 255, 0);
+                        TrendText.Foreground = color;
+                        TrendText.Content = itemDetails.prices.days30.change;
+                    }
+                    else if (itemDetails.prices.days30.trend == "negative")
+                    {
+                        color.Color = Color.FromRgb(255, 0, 0);
+                        TrendText.Foreground = color;
+                        TrendText.Content = itemDetails.prices.days30.change;
+                    }
+                    else
+                    {
+                        color.Color = Color.FromRgb(133, 133, 133);
+                        TrendText.Foreground = color;
+                        TrendText.Content = "Neutral";
+                    }
+                    this.StatusLabel.Content = "Running!";
                 }
                 else
                 {
-                    color.Color = Color.FromRgb(133, 133, 133);
-                    TrendText.Foreground = color;
-                    TrendText.Content = "Neutral";
+                    this.StatusLabel.Content = "Web Connection Error, Check your Internet Connection.";
                 }
             }
         }
@@ -284,7 +332,7 @@ namespace GE_Item_Lookup
         {
             string selectedString;
             selectedString = (string)TypeBox.SelectedValue;
-            if (selectedString.Equals("<Current Investments>"))
+            if (selectedString != null && selectedString.Equals("<Current Investments>"))
             {
                 cvItemList.Filter = CustomInvestmentsFilter;
             }
@@ -317,11 +365,19 @@ namespace GE_Item_Lookup
                 costPerUnit = Convert.ToInt32(CostPerUnitText.Text);
                 IdList.RootObject selectedItem;
                 selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
-                selectedItem.investments.newTransaction(amount, costPerUnit);
-                ErrorLabel.Content = "";
-                AmountInvested.Content = selectedItem.investments.amount;
-                MoneyInvested.Content = selectedItem.investments.money;
-                updateProfitMargin(selectedItem);
+                if (selectedItem == null)
+                {
+                    int id = Convert.ToInt32(IdText.Content.ToString().Substring(4));
+                    selectedItem = idList.list.Single(i => i.id == id);
+                }
+                if (selectedItem != null)
+                {
+                    selectedItem.investments.newTransaction(amount, costPerUnit);
+                    ErrorLabel.Content = "";
+                    AmountInvested.Content = selectedItem.investments.amount;
+                    MoneyInvested.Content = selectedItem.investments.money;
+                    updateProfitMargin(selectedItem);
+                }
             }
             catch (FormatException)
             {
@@ -337,6 +393,11 @@ namespace GE_Item_Lookup
                 if (((FrameworkElement)element).Parent is DataGridCell)
                 {
                     IdList.RootObject selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
+                    if (selectedItem == null)
+                    {
+                        int id = Convert.ToInt32(IdText.Content.ToString().Substring(4));
+                        selectedItem = idList.list.Single(i => i.id == id);
+                    }
                     IdList.Transaction selectedTransation = (IdList.Transaction)TransactionGrid.SelectedItem;
                     // Display message box
                     MessageBoxButton button = MessageBoxButton.YesNoCancel;
@@ -465,17 +526,25 @@ namespace GE_Item_Lookup
                 costPerUnit = Convert.ToInt32(CostPerUnitText.Text);
                 IdList.RootObject selectedItem;
                 selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
-                if (selectedItem.investments.amount - amount >= 0)
+                if (selectedItem == null)
                 {
-                    selectedItem.investments.sellTransaction(amount, costPerUnit);
-                    ErrorLabel.Content = "";
-                    AmountInvested.Content = selectedItem.investments.amount;
-                    MoneyInvested.Content = selectedItem.investments.money;
-                    updateProfitMargin(selectedItem);
+                    int id = Convert.ToInt32(IdText.Content.ToString().Substring(4));
+                    selectedItem = idList.list.Single(i => i.id == id);
                 }
-                else
+                if (selectedItem != null)
                 {
-                    MessageBox.Show("You can't sell more than you have");
+                    if (selectedItem.investments.amount - amount >= 0)
+                    {
+                        selectedItem.investments.sellTransaction(amount, costPerUnit);
+                        ErrorLabel.Content = "";
+                        AmountInvested.Content = selectedItem.investments.amount;
+                        MoneyInvested.Content = selectedItem.investments.money;
+                        updateProfitMargin(selectedItem);
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can't sell more than you have");
+                    }
                 }
             }
             catch (FormatException)
@@ -487,12 +556,20 @@ namespace GE_Item_Lookup
         private void ClearTransactionsButton_Click(object sender, RoutedEventArgs e)
         {
             IdList.RootObject selectedItem = (IdList.RootObject)IdListGrid.SelectedItem;
-            selectedItem.investments.transactions.Clear();
-            selectedItem.investments.money = 0;
-            selectedItem.investments.amount = 0;
-            AmountInvested.Content = selectedItem.investments.amount;
-            MoneyInvested.Content = selectedItem.investments.money;
-            updateProfitMargin(selectedItem);
+            if(selectedItem==null)
+            {
+                int id = Convert.ToInt32(IdText.Content.ToString().Substring(4));
+                selectedItem = idList.list.Single(i => i.id == id);
+            }
+            if (selectedItem != null)
+            {
+                selectedItem.investments.transactions.Clear();
+                selectedItem.investments.money = 0;
+                selectedItem.investments.amount = 0;
+                AmountInvested.Content = selectedItem.investments.amount;
+                MoneyInvested.Content = selectedItem.investments.money;
+                updateProfitMargin(selectedItem);
+            }
         }
 
         private void CompanionButton_Click(object sender, RoutedEventArgs e)

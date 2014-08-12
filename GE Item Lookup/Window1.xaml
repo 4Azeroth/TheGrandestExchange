@@ -7,8 +7,6 @@
             <ColumnDefinition Width="482*"/>
             <ColumnDefinition Width="635*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Minimize" Focusable="False" Content="_" HorizontalAlignment="Left" Height="68" Margin="241,-39,0,310" VerticalAlignment="Bottom" Width="64" FontSize="36" FontWeight="Bold" Foreground="White" Background="{x:Null}" Click="Minimize_Click" ClickMode="Press" Panel.ZIndex="1" Grid.Column="1"/>
-        <Button x:Name="Exit" Focusable="False" Content="X" HorizontalAlignment="Left" Height="32" Margin="303,-3,-1,0" VerticalAlignment="Top" Width="64" FontSize="22" FontWeight="Bold" Foreground="White" Background="#7FFF0E0E" RenderTransformOrigin="0.558,1.274" FontFamily="Tempus Sans ITC" Click="Exit_Click" Panel.ZIndex="1" Grid.Column="1"/>
         <Rectangle Fill="#FF211717" HorizontalAlignment="Left" Height="605" Stroke="Black" VerticalAlignment="Top" Width="1117" Grid.ColumnSpan="2"/>
         <Rectangle HorizontalAlignment="Left" Height="605" Stroke="Black" VerticalAlignment="Top" Width="1117" Grid.ColumnSpan="2">
             <Rectangle.Fill>
@@ -50,5 +48,7 @@
         <Rectangle x:Name="DragRect" HorizontalAlignment="Left" Height="33" Margin="-1,-2,0,0" VerticalAlignment="Top" Width="516" MouseDown="DragRect_MouseDown" Fill="#02000000" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="26,69,0,0" TextWrapping="Wrap" Text="This program was made for free use by Zach Teisberg.                       Special thanks to: Rich Canada, Bobby Cravalho                      And all the guys over at http://www.rsapi.net/ and Jagex LTD.  " VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="2" Height="118" Width="553" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Height="38" Margin="5,316,-6,-15" TextWrapping="Wrap" Text="All data from the game RuneScape belongs to Jagex Ltd. RuneScape and Jagex are registered trademarks of Jagex Ltd." VerticalAlignment="Top" Width="644" Grid.ColumnSpan="2" Foreground="White"/>
+        <Button x:Name="Minimize" Focusable="False" Content="_" HorizontalAlignment="Left" Height="68" Margin="242,-41,0,312" VerticalAlignment="Bottom" Width="64" FontSize="36" FontWeight="Bold" Foreground="White" Background="#7F16004F" Click="Minimize_Click" ClickMode="Press" Panel.ZIndex="1" Grid.Column="1"/>
+        <Button x:Name="Exit" Focusable="False" Content="X" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,-2" Margin="304,-41,-2,312" Width="64" FontSize="22" FontWeight="Bold" Foreground="White" Background="#7FFF0000" RenderTransformOrigin="0.558,1.274" FontFamily="Tempus Sans ITC" Click="Exit_Click" Panel.ZIndex="1" Grid.Column="1" BorderBrush="{x:Null}" BorderThickness="0" Height="68" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
