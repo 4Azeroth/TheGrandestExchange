@@ -20,10 +20,11 @@ namespace GE_Item_Lookup
 
                 StreamReader sr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\settings.geson");
                 json_data = sr.ReadToEnd();
+                sr.Close();
                 if (json_data== "null")
                 {
                     json_data=webIDList();
-                    //File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\settings.geson");
+                    File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\settings.geson");
                 }
             }
             else
