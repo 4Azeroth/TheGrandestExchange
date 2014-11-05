@@ -350,10 +350,10 @@
         <TextBlock x:Name="Visible_3" Text="Track and see profits before selling here by managing your transactions!" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Left" Margin="238,386,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="18" Visibility="Visible" FontWeight="Bold" Height="112" Width="357" TextAlignment="Center"/>
         <TextBlock x:Name="Visible_4" Text="Use the Custom Filters Dropdown box below to quickly Search for your Custom Filters or  Current Investments!" TextWrapping="Wrap" Grid.Column="1" HorizontalAlignment="Left" Margin="226,186,0,0" VerticalAlignment="Top" IsManipulationEnabled="True" Foreground="White" FontSize="18" Visibility="Visible" FontWeight="Bold" Height="74" Width="406" TextAlignment="Center"/>
         <Button x:Name="ClearData" Focusable="False" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,-6" Margin="456,-37,0,574" Width="59" FontSize="22" FontWeight="Bold" RenderTransformOrigin="0.558,1.274" FontFamily="Tempus Sans ITC" Click="ClearData_Click" Panel.ZIndex="1" Grid.Column="1" BorderBrush="{x:Null}" BorderThickness="0" Height="68" VerticalAlignment="Bottom" Background="#7F1ABD00">
-                <StackPanel Height="35" Width="35">
+            <StackPanel Height="35" Width="35">
                 <Image Source="1407887197_55278.ico" Height="27" />
 
-                </StackPanel>
+            </StackPanel>
         </Button>
     </Grid>
 </Window>

@@ -5,5 +5,7 @@
     <Application.Resources>
         <SolidColorBrush x:Key="DarkSquareColor" Color="#18FFFFFF" />
         <SolidColorBrush x:Key="LightSquareColor" Color="#34FFFFFF" />
+        <SolidColorBrush x:Key="ButtonSelectBrush" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="DarkBrush" Color="Red" />
     </Application.Resources>
 </Application>
